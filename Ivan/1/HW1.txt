@@ -1,0 +1,121 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <time.h>
+#include <windows.h>
+
+using namespace std;
+
+void HomeWork_1()
+{
+	float R, L;
+	cout << "Введите радиус окружности в см" << endl;
+	cin >> R;
+	L = R*2*3.14;
+	cout << L << " - см" << endl;
+}
+
+void HomeWork_2()
+{
+	int N;
+	unsigned long long int k=1;
+	cout << "Введите число, факториал которого нужно вычислить" << endl;
+	cin >> N;
+	for(int i = 1; i < N + 1; i++)
+	{
+		k = k * i;
+	}
+	cout << k << endl;
+}
+
+void HomeWork_3()
+{
+	srand(time(NULL));
+	int low=9999999, n;
+	vector<int> data;
+	
+	for (int i = 0; i < 1000;i++)
+	{
+		data.push_back(rand()%1000000);
+	}
+	
+	for (int i = 0; i < 1000;i++)
+	{
+		if(data[i]<low)
+		{
+			low = data[i];
+			n = i;
+		}
+	}
+	
+	cout << "Индекс - " << n << endl;
+	cout << "Значение - " <<low << endl;
+}
+
+int main()
+{
+	setlocale(LC_CTYPE, "rus");
+	int HW;
+	char wanting;
+	
+	wanting = 'y';
+	while(wanting == 'Y'||wanting == 'y')
+	{
+		cout << "Выберите номер задания:" << endl << endl;
+		cout << "1) Поиск длины окружности" << endl;
+		cout << "2) Поиск факториала" << endl;
+		cout << "3) Наименьшее значение в векторе" << endl << endl;
+		
+		cin >> HW;
+		system("cls");
+		
+		switch(HW)
+		{
+			case 1:
+				
+				HomeWork_1();
+				system("pause");
+				system("cls");
+				break;
+			
+			case 2:
+				
+				HomeWork_2();
+				system("pause");
+				system("cls");
+				break;
+				
+				
+			case 3:
+				HomeWork_3();
+				system("pause");
+				system("cls");
+				break;
+			
+			case 69:
+				cout << "Ах тыж больной ублюдок";
+				Sleep(1000);
+				cout << ".";
+				Sleep(1000);
+				cout << ".";
+				Sleep(1000);
+				cout << "." << endl;
+				Sleep(1000);
+				system("cls");
+				cout << "Но мне это нравится)";
+				Sleep(2000);
+				system("cls");
+				break;
+		}
+		
+		if ( HW == 1||HW == 2||HW == 3)
+		{
+			cout << "Wanna try again?" << endl;
+			cout << "Y or N" << endl;
+			cin >> wanting;
+			system("cls");
+		}
+		
+	}
+	
+}

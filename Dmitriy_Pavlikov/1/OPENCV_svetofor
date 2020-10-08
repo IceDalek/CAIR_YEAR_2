@@ -1,0 +1,26 @@
+include "opencv2/imgcodecs.hpp"
+#include <opencv2/opencv.hpp>
+#include "opencv2/highgui.hpp"
+using namespace cv;
+using namespace std;
+
+
+int main()
+{
+	Mat image;
+	Mat converted;
+	//Scalar low_hsv_line(0, 0, 0);
+	//Scalar high_hsv_line(155, 155, 155);
+	Scalar low_red_line(0, 20, 20);
+	Scalar high_red_line(20, 250, 250);
+	image = imread("img/svetofor.JPEG");
+	cvtColor(image, converted, COLOR_BGR2HSV);
+	Mat line_detection;
+	Mat red_detection;
+	//inRange(converted, low_hsv_line, high_hsv_line, line_detection);
+	inRange(converted, low_red_line, high_red_line, red_detection);
+	imshow("image", image);
+	//imshow("B/W", line_detection);
+	imshow("RED", red_detection);
+	waitKey(0);
+}
